@@ -16,12 +16,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+#' A Reference Class to represent a node of a game tree.
+#'
+#' @field properties Character vector.
+#' @field children Character vector. Children nodes of the current node.
+# TODO : Update fields decription.
 Node <- setRefClass(Class = "Node", fields = c("properties", "children"))
 
-tokenize <- function(file) {
-  # Recive connection to sgf file
-
-  f <- ireadChar(con=file, n=1)
+# TODO : Write documentation for tokenize
+tokenize <- function(con) {
+  f <- ireadChar(con=con, n=1)
   last_char <- " "
   uppers <- LETTERS
 
