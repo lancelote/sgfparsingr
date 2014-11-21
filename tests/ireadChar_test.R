@@ -30,3 +30,5 @@ test_that("`ireadChar` reads characters from a file", {
   expect_that(nextElem(f), equals("M"))
   expect_that(nextElem(f), equals("["))
 })
+
+# TODO : negative n

@@ -1,12 +1,13 @@
 Package: sgfparsingr
 Title: sgf files parser
-Version: 0.1
+Version: 0.0.0.9000
 Authors@R: person("Pavel", "Karateev", email="pavel.karateev@ya.ru",
-  role=c("aut", "cre"))
+    role=c("aut", "cre"))
 Description: Simple parser for sgf files. Based on Xavier Combelle sgf parsing
     Python impelentation. Uses iterators and classes to process sgfs.
-Depends: R (>= 3.1.2)
-License: GPL-3 | Apache License 2.0
+Depends:
+    R (>= 3.1.2)
+License: GPL-3
 LazyData: true
 URL: https://github.com/lancelote/sgfparsingr
 BugReports: https://github.com/lancelote/sgfparsingr/issues

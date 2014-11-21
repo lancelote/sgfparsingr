@@ -13,8 +13,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Custom iterator based on `ireadLines` from `iterators` package
-
+#' @title Iterator over Characters of Text from a Connection
+#'
+#' @description Custom iterator based on `ireadLines` from `iterators` package.
+#' It is a wrapper around the standard `readChar` function.
+#'
+#' @param con A connection object or a character string.
+#' @param n Integer. The number of characters to read by one step. Negative
+#' values indicate that one should read up to the end of the connection. The
+#' default value is 1.
+#' @param ... Passed on to the readChar function.
+#' @return An iterator over the characters of text from a connection.
+#' @examples
+#' it <- ireadChar(file.path(R.home(), 'COPYING'))
+#' nextElem(it)
+#' nextElem(it)
+#' nextElem(it)
 ireadChar <- function(con, n=1, ...) {
   # Iterate over file character by character
 
