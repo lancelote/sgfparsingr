@@ -14,7 +14,6 @@
 # limitations under the License.
 
 # Custom iterator based on `ireadLines` from `iterators` package
-# To work `ireadChar` needs loaded `iterators` package
 
 ireadChar <- function(con, n=1, ...) {
   # Iterate over file character by character

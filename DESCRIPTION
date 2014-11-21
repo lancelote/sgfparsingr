@@ -1,9 +1,10 @@
-Package: sgfparsingR
-Title: What the package does (one line)
+Package: sgfparsingr
+Title: sgf files parser
 Version: 0.1
-Authors@R: "First Last <first.last@example.com> [aut, cre]"
-Description: What the package does (one paragraph)
+Authors@R: "Pavel Karateev <pavel.karateev@ya.ru> [aut, cre]"
+Description: simple parser for sgf files
 Depends: R (>= 3.1.2)
 License: GNU GPL v3
 LazyData: true
-Imports: iterators
+Imports:
+    iterators (>= 1.0.7)

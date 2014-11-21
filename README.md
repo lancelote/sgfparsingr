@@ -1,4 +1,4 @@
-# sgfparsingR #
+# sgfparsingr #
 
 `.sgf` files parsing package, based on Xavier Combelle sgf parsing Python
 [implementation](https://github.com/xcombelle/sgftool).

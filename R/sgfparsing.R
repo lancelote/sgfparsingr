@@ -1,9 +1,9 @@
 # Copyright (C) 2014 Xavier Combelle
 # Copyright (C) 2014 Pavel Karateev
 #
-# This file is part of sgfparsingR
+# This file is part of sgfparsingr
 #
-# sgfparsingR is free software: you can redistribute it and/or modify
+# sgfparsingr is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
@@ -22,14 +22,14 @@ Node <- setRefClass(Class = "Node", fields = c("properties", "children"))
 tokenize <- function(file) {
   # Recive connection to sgf file
 
-  f <- ireadChar(con = file, n = 1)
+  f <- ireadChar(con=file, n=1)
   last_char <- " "
   uppers <- LETTERS
 
   while (TRUE) {
     # Skip space characters
     while (last_char == " ") {
-      last_char <- nextElem(f)
+      last_char <- devtools::nextElem(f)
     }
 
     # Return property name
@@ -37,7 +37,7 @@ tokenize <- function(file) {
       propery_name <- list()
       while (last_char %in% uppers) {
         property_name <- c(property_name, last_char)
-        last_char <- nextElem(f)
+        last_char <- devtools::nextElem(f)
       }
     }
   }
