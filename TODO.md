@@ -2,7 +2,7 @@
 
 ## ireadChar.R ##
 
-- [ ] @examples
+- [ ] rewrite documentation (iterator)
 - [ ] reset condition
 - [x] stop condition
 

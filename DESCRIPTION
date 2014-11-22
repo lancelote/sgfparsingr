@@ -11,5 +11,7 @@ License: GPL-3
 LazyData: true
 URL: https://github.com/lancelote/sgfparsingr
 BugReports: https://github.com/lancelote/sgfparsingr/issues
-Suggests: testthat
-Imports: lambda.r (>= 1.1.6)
+Suggests:
+    testthat
+Imports:
+    lambda.r (>= 1.1.6)

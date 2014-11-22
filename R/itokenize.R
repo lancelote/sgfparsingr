@@ -16,8 +16,24 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#' A Reference Class to represent a node of a game tree.
-#'
-#' @field properties Character vector.
-#' @field children Character vector. Children nodes of the current node.
-Node <- setRefClass(Class = "Node", fields = c("properties", "children"))
+itokenize <- function(file) {
+  nextChar <- ireadChar(file)
+  last_char <- " "
+  uppers <- LETTERS
+
+  while (TRUE) {
+    # Skip space characters
+    while (last_char == " ") {
+      last_char <- nextChar()
+    }
+
+    # Return property name
+    if (last_char %in% uppers) {
+      propery_name <- list()
+      while (last_char %in% uppers) {
+        property_name <- c(property_name, last_char)
+        last_char <- nextChar()
+      }
+    }
+  }
+}

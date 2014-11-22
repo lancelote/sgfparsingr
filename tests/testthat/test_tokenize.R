@@ -1,4 +1,3 @@
-# Copyright (C) 2014 Xavier Combelle
 # Copyright (C) 2014 Pavel Karateev
 #
 # This file is part of sgfparsingr
@@ -16,8 +15,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#' A Reference Class to represent a node of a game tree.
-#'
-#' @field properties Character vector.
-#' @field children Character vector. Children nodes of the current node.
-Node <- setRefClass(Class = "Node", fields = c("properties", "children"))
+context("`itokenize` function")
+###############################
+
+nextToken <- itokenize(file.path("test_data", "test.sgf"))
+
+test_that("`itokenize` returns proper tokens", {
+  expect_that(nextToken(), equals(c("special", "(")))
+  expect_that(nextToken(), equals(c("special", ";")))
+  expect_that(nextToken(), equals(c("property_name", "GM")))
+  expect_that(nextToken(), equals(c("property_value", "1")))
+  expect_that(nextToken(), equals(c("property_name", "FF")))
+})
+
+nextToken(abort=TRUE)
+
