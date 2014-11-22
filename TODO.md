@@ -3,6 +3,8 @@
 ## ireadChar.R ##
 
 - [ ] @examples
+- [ ] reset condition
+- [x] stop condition
 
 ## sgfparsing.R ##
 

@@ -15,20 +15,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# library(lambda.r)
-
 context("`ireadChar` function")
 ###############################
 
-f <- ireadChar(con = file.path("test_data", "test.sgf"), n = 1)
+nextChar <- ireadChar(file.path("test_data", "test.sgf"))
 
 test_that("`ireadChar` reads characters from a file", {
-  expect_that(nextElem(f), equals("("))
-  expect_that(nextElem(f), equals(";"))
-  expect_that(nextElem(f), equals("G"))
-  expect_that(nextElem(f), equals("M"))
-  expect_that(nextElem(f), equals("["))
+  expect_that(nextChar(), equals("("))
+  expect_that(nextChar(), equals(";"))
+  expect_that(nextChar(), equals("G"))
+  expect_that(nextChar(), equals("M"))
+  expect_that(nextChar(), equals("["))
 })
 
-# detach("package:lambda.r", unload=TRUE)
-# closeAllConnections()
+nextChar(abort=TRUE)
