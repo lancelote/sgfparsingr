@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-library(iterators)
+# library(lambda.r)
 
 context("`ireadChar` function")
 ###############################
@@ -30,5 +30,5 @@ test_that("`ireadChar` reads characters from a file", {
   expect_that(nextElem(f), equals("["))
 })
 
-detach("package:iterators", unload=TRUE)
-closeAllConnections()
+# detach("package:lambda.r", unload=TRUE)
+# closeAllConnections()

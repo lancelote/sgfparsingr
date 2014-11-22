@@ -1,8 +1,8 @@
 # TODO list #
 
-## ireadChar_test.R ##
+## ireadChar.R ##
 
-- [ ] Cover negative n by unittests
+- [ ] @examples
 
 ## sgfparsing.R ##
 

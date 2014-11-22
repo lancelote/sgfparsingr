@@ -5,12 +5,11 @@ Authors@R: person("Pavel", "Karateev", email="pavel.karateev@ya.ru",
     role=c("aut", "cre"))
 Description: Simple parser for sgf files. Based on Xavier Combelle sgf parsing
     Python impelentation. Uses iterators and classes to process sgfs.
-Depends: 
+Depends:
     R (>= 3.1.2)
 License: GPL-3
 LazyData: true
 URL: https://github.com/lancelote/sgfparsingr
 BugReports: https://github.com/lancelote/sgfparsingr/issues
-Imports: 
-    iterators (>= 1.0.7)
 Suggests: testthat
+Imports: lambda.r (>= 1.1.6)

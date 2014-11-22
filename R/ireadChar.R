@@ -1,64 +1,33 @@
-# Copyright 2008-2010 Revolution Analytics
-# Copyright 2014 Pavel Karateev
+# Copyright (C) 2014 Pavel Karateev
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# This file is part of sgfparsingr
 #
-# http://www.apache.org/licenses/LICENSE-2.0
+# sgfparsingr is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#' @title Iterator over Characters of Text from a Connection
+#' @title Iterator over file characters
 #'
-#' @description Custom iterator based on \code{ireadLines} from
-#' \code{iterators} package. It is a wrapper around the standard
-#' \code{readChar} function.
+#' @description Simple iterator wrapper around the standard \code{readChar}
+#' function.
 #'
-#' @param con A connection object.
-#' @param n Integer. The number of characters to read by one step. Negative
-#' values indicate that one should read up to the end of the connection. The
-#' default value is 1.
-#' @param ... Passed on to the readChar function.
-#' @return An iterator over the characters of text from a connection.
-#' @examples
-#' # Read characters from 'COPYING' file (30 by one step)
-#' it <- ireadChar(con=(file.path(R.home(), 'COPYING')), n=30)
-#' nextElem(it)
-#' nextElem(it)
-#' nextElem(it)
-ireadChar <- function(con, n=1, ...) {
-  # Iterate over file character by character
-
-  if (!is.numeric(n) || length(n) != 1 || n < 1)
-    stop('n must be a numeric value >= 1')
-
-  if (is.character(con)) {
-    con <- file(con, open='r')
-    doClose <- TRUE
-  } else {
-    doClose <- FALSE
+#' @param path A path to a file.
+#' @return An iterator over the file characters.
+ireadChar(path) %as%
+{
+  con <- file(path, open='r')
+  char <- ""
+  function() {
+    char <<- readChar(con, n=1)
+    return(char)
   }
-
-  nextEl <- function() {
-    if (is.null(con))
-      stop('StopIteration', call.=FALSE)
-
-    r <- readChar(con, n=n, ...)
-    if (length(r) == 0) {
-      if (doClose)
-        close(con)
-      con <<- NULL
-      stop('StopIteration', call.=FALSE)
-    }
-    r
-  }
-
-  it <- list(nextElem=nextEl)
-  class(it) <- c('abstractiter', 'iter')
-  it
 }
