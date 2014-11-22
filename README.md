@@ -17,12 +17,16 @@ All contributions are welcome (if there will be any). You should be probably
 aware of R package development process (check this [guide](http://r-pkgs.had.co.nz/)) 
 and Test-driven Development methods (everything must be covered by unittests).
 
+## Testing ##
+
+Use `devtools::test()` or Ctrl + Shift + T to run unittests.
+
 ### Debugging ###
 
-To debug use `devtools::load_all()` (Ctrl + Shift + L) to load all functions 
+To debug use `devtools::load_all()` or Ctrl + Shift + L to load all functions 
 and classes.
 
 ### Documentation ###
 
-For documentation use `roxygen` comments, autobuild via `devtools::document()` 
+For documentation use `roxygen2` comments, autobuild via `devtools::document()` 
 or Ctrl + Shift + D in RStudio (useful [guide](http://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html)).

@@ -20,10 +20,8 @@
 #'
 #' @field properties Character vector.
 #' @field children Character vector. Children nodes of the current node.
-# TODO : Update fields decription.
 Node <- setRefClass(Class = "Node", fields = c("properties", "children"))
 
-# TODO : Write documentation for tokenize
 tokenize <- function(con) {
   f <- ireadChar(con=con, n=1)
   last_char <- " "
