@@ -2,11 +2,17 @@
 
 ## ireadChar.R ##
 
-- [ ] rewrite documentation (iterator)
-- [ ] reset condition
-- [x] stop condition
+- [ ] Rewrite documentation (iterator)
+- [ ] Reset condition
+- [x] Stop condition
 
 ## sgfparsing.R ##
 
-- [ ] Write documentation for tokenize
 - [ ] Update class feilds description
+
+## itokenize.R ##
+
+- [ ] Check return logic
+- [ ] Test tokenize
+- [ ] Write documentation for tokenize
+- [ ] Write "raise error" code for broken sgfs

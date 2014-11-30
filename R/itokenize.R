@@ -34,6 +34,30 @@ itokenize <- function(file) {
         property_name <- c(property_name, last_char)
         last_char <- nextChar()
       }
+      return(c("property_name", paste(property_name, collapse = ""))
+
+    # Return property value
+    } else if (last_char == "[") {
+      last_char <- nextChar()
+      property_value <- list()
+      while (last_char != "]") {
+
+        # Skip first "]" for comment property value
+        if (last_char == "\\") {
+          property_value <- c(property_value, nextChar())
+
+        } else {
+          property_value <- c(property_value, last_char)
+        }
+        last_char <- nextChar()
+      }
+      return(c("property_value", paste(property_value, collapse = "")))
+      last_char <- nextChar()
+
+    # Return special token
+    } else {
+      return(c("special"), last_char)
+      last_char <- nextChar()
     }
   }
 }
