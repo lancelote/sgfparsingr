@@ -16,6 +16,7 @@ be more educationally wise.
 All contributions are welcome (if there will be any). You should be probably 
 aware of R package development process (check this [guide](http://r-pkgs.had.co.nz/)) 
 and Test-driven Development methods (everything must be covered by unittests).
+Check [TODO](TODO.md).
 
 ## Testing ##
 

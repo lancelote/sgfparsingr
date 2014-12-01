@@ -16,12 +16,21 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-itokenize <- function(file) {
-  nextChar <- ireadChar(file)
-  last_char <- " "
-  uppers <- LETTERS
+itokenize(path) %as%
+{
+  token <- list()
 
-  while (TRUE) {
+  function(abort=FALSE) {
+    nextChar <- ireadChar(file)
+    last_char <- " "
+    uppers <- LETTERS
+
+    # Stop iterator
+    if (abort) {
+      nextChar(abort=TRUE)
+      return(invisible())
+    }
+
     # Skip space characters
     while (last_char == " ") {
       last_char <- nextChar()
@@ -34,7 +43,7 @@ itokenize <- function(file) {
         property_name <- c(property_name, last_char)
         last_char <- nextChar()
       }
-      return(c("property_name", paste(property_name, collapse = ""))
+      token <<- c("property_name", paste(property_name, collapse = ""))
 
     # Return property value
     } else if (last_char == "[") {
@@ -51,13 +60,14 @@ itokenize <- function(file) {
         }
         last_char <- nextChar()
       }
-      return(c("property_value", paste(property_value, collapse = "")))
+      token <<- c("property_value", paste(property_value, collapse = ""))
       last_char <- nextChar()
 
-    # Return special token
+      # Return special token
     } else {
-      return(c("special"), last_char)
+      token <<- c("special", last_char)
       last_char <- nextChar()
     }
+    return(token)
   }
 }

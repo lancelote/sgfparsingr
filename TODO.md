@@ -4,15 +4,16 @@
 
 - [ ] Rewrite documentation (iterator)
 - [ ] Reset condition
-- [x] Stop condition
+- [x] Abort condition
 
 ## sgfparsing.R ##
 
 - [ ] Update class feilds description
+- [ ] Check alternative ways to implement Node class
 
 ## itokenize.R ##
 
-- [ ] Check return logic
+- [ ] Fix iterator
 - [ ] Test tokenize
-- [ ] Write documentation for tokenize
+- [ ] Rewrite documentation (iterator)
 - [ ] Write "raise error" code for broken sgfs

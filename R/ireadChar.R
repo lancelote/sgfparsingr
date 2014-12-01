@@ -27,10 +27,13 @@ ireadChar(path) %as%
   con <- file(path, open='r')
   char <- ""
   function(abort=FALSE) {
+
+    # Stop iterator
     if (abort) {
       close(con)
       return(invisible())
     }
+
     char <<- readChar(con, n=1)
     return(char)
   }
